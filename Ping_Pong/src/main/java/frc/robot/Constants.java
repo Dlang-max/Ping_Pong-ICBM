@@ -16,4 +16,23 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+
+  /**
+   * CANID class keeps track of CAN IDs
+   */
+  public static class CANID{
+
+    public static final int SHOULDER = -0;
+    public static final int ELBOW = -0;
+
+  }
+
+  /**
+   * Governors class keeps track of movement governors
+   */
+  public static class Governors
+  {
+    public static final double SHOULDER_GOVERNOR = 0.75;
+    public static final double ELBOW_GOVERNOR = 0.75; 
+  }
 }
