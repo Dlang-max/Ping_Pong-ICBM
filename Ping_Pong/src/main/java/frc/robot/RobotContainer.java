@@ -3,9 +3,6 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot;
-
-import frc.robot.subsystems.*;
-import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.Elbow;
 import frc.robot.subsystems.Shoulder;
 import edu.wpi.first.math.MathUtil;
