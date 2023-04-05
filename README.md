@@ -29,7 +29,8 @@ robot to a set position using a simple conversion.
  the camera. We will then predict where the ball will break the plane at the back of the ping pong table. The, using 
  inverse kinematics we will determine what angles we need the joints of our arm to be at. Link to Calibration Repository:
  https://github.com/Dlang-max/Capstone_Camera_Calibration Link to first iteration of Distance Detection Repository: 
- https://github.com/Dlang-max/Distance_Detection This repository is bound to change. 
+ https://github.com/Dlang-max/Distance_Detection This repository is bound to change. I'm also going to train a new object
+ detection model for a ping pong ball because the one we are using right now isn't very accurate. 
  
 
 
