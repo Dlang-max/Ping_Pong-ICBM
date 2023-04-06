@@ -45,8 +45,8 @@ only using 176 images. My hands are also in the images and because they are the 
 hands were ping pong balls. Tomorrow I'm going to train another model using around 750 images. Then I'm going to work on distance calculations and
 predictions for the ball. 
 
-Link to unblur and picture every ten frames code: https://github.com/Dlang-max/Capstone-Vision-Tests
-Link to machine learning ping pong model and code: https://github.com/Dlang-max/Capstone-Machine-Learning
-Link to the Google Colab notebook I use to train my models: https://colab.research.google.com/github/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Train_TFLite2_Object_Detction_Model.ipynb#scrollTo=TI9iCCxoNlAL
-Link to Youtube video explaining this notebook: https://www.youtube.com/watch?v=XZ7FYAMCc4M&t=846s
++ Link to unblur and picture every ten frames code: https://github.com/Dlang-max/Capstone-Vision-Tests
++ Link to machine learning ping pong model and code: https://github.com/Dlang-max/Capstone-Machine-Learning
++ Link to the Google Colab notebook I use to train my models: https://colab.research.google.com/github/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Train_TFLite2_Object_Detction_Model.ipynb#scrollTo=TI9iCCxoNlAL
++ Link to Youtube video explaining this notebook: https://www.youtube.com/watch?v=XZ7FYAMCc4M&t=846s
 
