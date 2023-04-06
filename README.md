@@ -39,8 +39,8 @@ detection model for a ping pong ball because the one we are using right now isn'
 I did a lot of work on vision processing today. I also ran into one major error. CAMERA BLUR. With the original shutter speed of 
 the USB camera I'm using, ping pong balls would blur when they came into view of the camera because of how fast they move. To combat
 this issue I raised the shutter speed of the camera and now I no longer get a blur when the ball crosses my screen. Then I moved to training
-version 1 of the Tensorflow model I will use for our capstone. I used a script to take pictures every ten frames from a usb camera. I then used 
-LabelImg to annotae these images and I then trained a CNN using a colab notebook. When I tested this model it wasn't very good as expected as it's
+version 1 of the Tensorflow model I will use for our capstone. I used a script to take pictures every ten frames from a USBg camera. I then used 
+LabelImg to annotate these images and I then trained a CNN using a colab notebook. When I tested this model it wasn't very good as expected as it's
 only using 176 images. My hands are also in the images and because they are the same color as the ping pong ball I'm using my model kept thinking my
 hands were ping pong balls. Tomorrow I'm going to train another model using around 750 images. Then I'm going to work on distance calculations and
 predictions for the ball. 
