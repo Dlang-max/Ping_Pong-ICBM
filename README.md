@@ -58,10 +58,14 @@ Link to the Inverse Kinematics Youtube video: https://robotacademy.net.au/lesson
 
 ### April 7th, 2023
 
-Today I worked on actually calculating the distnace to a ping pong ball using the Microsoft LifeCam 3000's focal length. The results weren't entirely great and tomorrow I'm going to shift gears and switch to using two USB cameras to do triangulation. This will give me x, y, and z distance of the ping pong ball from both cameras. I also need to train a better model. The one I trained creates bounding boxes that are slightly too big. This discrepancy will screw up distance calculations as it relys on width of the ping pong ball in pixels. I also wrote a script that calculates the focal length of the Microsoft LifeCam 3000. I also wrote a script that takes a video using OpenCV and creates a .avi file. I wanted to do this because I want to be able to test my code in an effcient way. 
+Today I worked on actually calculating the distance to a ping pong ball using the Microsoft LifeCam 3000's focal length. The results weren't entirely great and tomorrow I'm going to shift gears and switch to using two USB cameras to do triangulation. This will give me the x, y, and z distance of the ping pong ball from both cameras. I also need to train a better model. The one I trained creates bounding boxes that are slightly too big. This discrepancy will screw up distance calculations as it relies on the width of the ping pong ball in pixels. I also wrote a script that calculates the focal length of the Microsoft LifeCam 3000. I also wrote a script that takes a video using OpenCV and creates a .avi file. I wanted to do this because I want to be able to test my code in an efficient way. 
+
 
 + #### Object Detection Working
-https://user-images.githubusercontent.com/59770928/230703405-e6ace266-eb56-4e5f-b893-cbdf67883cb3.MOV
+
+https://user-images.githubusercontent.com/59770928/230703715-6151163d-1ef1-4d22-9cf1-0d52f3c927b6.MOV
+![IMG_4196](https://user-images.githubusercontent.com/59770928/230703724-6df53648-df1f-484f-b1e3-ef902bddbd06.jpg)
+
 
 
 
