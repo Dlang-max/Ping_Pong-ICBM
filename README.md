@@ -64,7 +64,6 @@ Today I worked on actually calculating the distance to a ping pong ball using th
 + #### Object Detection Working
 
 https://user-images.githubusercontent.com/59770928/230703715-6151163d-1ef1-4d22-9cf1-0d52f3c927b6.MOV
-![IMG_4196](https://user-images.githubusercontent.com/59770928/230703724-6df53648-df1f-484f-b1e3-ef902bddbd06.jpg)
 
 
 
