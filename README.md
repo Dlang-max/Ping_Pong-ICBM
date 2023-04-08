@@ -50,3 +50,19 @@ predictions for the ball.
 + Link to the Google Colab notebook I use to train my models: https://colab.research.google.com/github/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Train_TFLite2_Object_Detction_Model.ipynb#scrollTo=TI9iCCxoNlAL
 + Link to Youtube video explaining this notebook: https://www.youtube.com/watch?v=XZ7FYAMCc4M&t=846s
 
+### April 6th, 2023
+
+Today I work on figuring out the equations I will use for the inverse kinematic control of the robot arm. It wasn't too bad. I watched a few Youtube videos on it. I think I'm also going to code a graphical demonstration of it using java just so I have a better grasp of it. This depends on time though. Tomorrow I'm going to work on calculating the distance of the ping pong ball from a USB camera.
+
+Link to the Inverse Kinematics Youtube video: https://robotacademy.net.au/lesson/inverse-kinematics-for-a-2-joint-robot-arm-using-geometry/
+
+### April 7th, 2023
+
+Today I worked on actually calculating the distnace to a ping pong ball using the Microsoft LifeCam 3000's focal length. The results weren't entirely great and tomorrow I'm going to shift gears and switch to using two USB cameras to do triangulation. This will give me x, y, and z distance of the ping pong ball from both cameras. I also need to train a better model. The one I trained creates bounding boxes that are slightly too big. This discrepancy will screw up distance calculations as it relys on width of the ping pong ball in pixels. I also wrote a script that calculates the focal length of the Microsoft LifeCam 3000. I also wrote a script that takes a video using OpenCV and creates a .avi file. I wanted to do this because I want to be able to test my code in an effcient way. 
+
++ #### Object Detection Working
+![IMG_4196](https://user-images.githubusercontent.com/59770928/230703411-430751bf-5e3f-419b-ab17-d7930d460145.jpg)
+https://user-images.githubusercontent.com/59770928/230703405-e6ace266-eb56-4e5f-b893-cbdf67883cb3.MOV
+
+
+
