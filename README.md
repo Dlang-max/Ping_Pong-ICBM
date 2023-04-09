@@ -64,3 +64,9 @@ Today I worked on actually calculating the distance to a ping pong ball using th
 + #### Object Detection Working
 
 ![IMG_4202 (1) (3)](https://user-images.githubusercontent.com/59770928/230704232-0b4a5ee5-178c-4173-88bc-56eeaecfde88.gif)
+
+### April 8th, 2023
+
+I've decided to switch to a triangulation method for determining the x, y, and z distance of the ping pong ball in a coordinate system that we can use. That means we'll be using two Microsoft LifeCam 3000 USB cameras. Tomorrow I'll write the code to run my object detection model on two cameras and do triangulation. I spent the last two hours reviewing code from someone who has already solved the triangulation problem. I think it may also be wise to add a backdrop to the ping pong table so we get less interference with our model. I'm also not sure yet if we should mount the cameras to the ceiling or put them on the opposite side of the ping pong table from our robot. 
+
+Link to Triangulation using OpenCv tutorial: https://www.youtube.com/watch?v=sW4CVI51jDY
