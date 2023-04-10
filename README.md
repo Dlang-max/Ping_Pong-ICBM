@@ -70,3 +70,10 @@ Today I worked on actually calculating the distance to a ping pong ball using th
 I've decided to switch to a triangulation method for determining the x, y, and z distance of the ping pong ball in a coordinate system that we can use. That means we'll be using two Microsoft LifeCam 3000 USB cameras. Tomorrow I'll write the code to run my object detection model on two cameras and do triangulation. I spent the last two hours reviewing code from someone who has already solved the triangulation problem. I think it may also be wise to add a backdrop to the ping pong table so we get less interference with our model. I'm also not sure yet if we should mount the cameras to the ceiling or put them on the opposite side of the ping pong table from our robot. 
 
 Link to Triangulation using OpenCv tutorial: https://www.youtube.com/watch?v=sW4CVI51jDY
+Link to the Gitlab Repository: https://gitlab.com/-/ide/project/duder1966/youtube-projects/edit/master/-/OpenCV
+
+### April 9th, 2023
+Worked on triangulation code using example code from the above-linked Youtube video and Gitlab linked in its description. I need an additional Microsoft LifeCam 3000 to do triangulation and I'll work on this tomorrow. Once I get accurate distance calculations I'm going to write code to predict the flight path of the ping pong ball. I'm not sure if I'm going to need this yet but we'll see. I also wrote test code to display two concatenated webcam feeds. 
+
+Concatenated Webcam Feeds:
+![IMG_4204](https://user-images.githubusercontent.com/59770928/230815967-da7e6c4e-5065-483a-a309-c3b9f61fd14c.jpg)
