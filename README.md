@@ -73,7 +73,20 @@ Link to Triangulation using OpenCv tutorial: https://www.youtube.com/watch?v=sW4
 Link to the Gitlab Repository: https://gitlab.com/-/ide/project/duder1966/youtube-projects/edit/master/-/OpenCV
 
 ### April 9th, 2023
+
 Worked on triangulation code using example code from the above-linked Youtube video and Gitlab linked in its description. I need an additional Microsoft LifeCam 3000 to do triangulation and I'll work on this tomorrow. Once I get accurate distance calculations I'm going to write code to predict the flight path of the ping pong ball. I'm not sure if I'm going to need this yet but we'll see. I also wrote test code to display two concatenated webcam feeds. 
 
 Concatenated Webcam Feeds:
+
 ![IMG_4204](https://user-images.githubusercontent.com/59770928/230815967-da7e6c4e-5065-483a-a309-c3b9f61fd14c.jpg)
+
+### April 10th, 2023
+
+Ran into a major hardware issue (feature) today. All of the ports on my computer except an SD card reader are USBC ports. To use USB cameras I need to use a dongle. Triangulation requires use of two cameras. So I thought I could just plug both cameras into one dongle. Turns out you can't. You need two seperate dongles. This makes sense because I could use my laptop's integrated camera and a single USB camera without running into a bug, but once I switched to two USB cameras, Opencv couldn't grab frames. This issue was resolved by using two dongles instead of one. Triangulation code now works and its actually pretty accurate. I think the next step is to actually start programming the robot arm. I want to see if I can just control it with a controller. Then I'll switch to controlling the arm with inverse kinematics. I also have to train new models for the cameras because we are now switching their orientation. I'm not sure yet if I have to train a seperate model for both cameras. I'm going to see how just one works and then go from there. 
+
++ #### Triangulation Code in Action (Ball was on 3in high duct tape and all distance measurements are in meters):
+
+![IMG_4207](https://user-images.githubusercontent.com/59770928/231032449-62124c4f-5a28-4707-ab6e-2cbfe6c480f7.jpg)
+![IMG_4210](https://user-images.githubusercontent.com/59770928/231032571-d2cbf4b8-509e-459a-baf3-73bb101e4c2d.jpg)
+
+
