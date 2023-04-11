@@ -74,7 +74,7 @@ I've decided to switch to a triangulation method for determining the x, y, and z
 
 ### April 9th, 2023
 
-Worked on triangulation code using example code from the above-linked Youtube video and Gitlab linked in its description. I need an additional Microsoft LifeCam 3000 to do triangulation and I'll work on this tomorrow. Once I get accurate distance calculations I'm going to write code to predict the flight path of the ping pong ball. I'm not sure if I'm going to need this yet but we'll see. I also wrote test code to display two concatenated webcam feeds. 
+Worked on triangulation code using example code from the above-linked Youtube video and Gitlab linked in its description. I need an additional Microsoft LifeCam 3000 to do triangulation and I'll work on this tomorrow. Once I get accurate distance calculations I'm going to write code to predict the flight path of the ping pong ball. I'm not sure if I'm going to need this yet but we'll see. I also wrote test code to display two concatenated webcam feeds. The display is of one USB camera and my laptop's integrated webcam 
 
 + #### Concatenated Webcam Feeds:
 
