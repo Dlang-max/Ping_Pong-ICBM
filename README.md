@@ -54,7 +54,7 @@ predictions for the ball.
 
 Today I work on figuring out the equations I will use for the inverse kinematic control of the robot arm. It wasn't too bad. I watched a few Youtube videos on it. I think I'm also going to code a graphical demonstration of it using java just so I have a better grasp of it. This depends on time though. Tomorrow I'm going to work on calculating the distance of the ping pong ball from a USB camera.
 
-Link to the Inverse Kinematics Youtube video: https://robotacademy.net.au/lesson/inverse-kinematics-for-a-2-joint-robot-arm-using-geometry/
++ Link to the Inverse Kinematics Youtube video: https://robotacademy.net.au/lesson/inverse-kinematics-for-a-2-joint-robot-arm-using-geometry/
 
 ### April 7th, 2023
 
@@ -69,20 +69,20 @@ Today I worked on actually calculating the distance to a ping pong ball using th
 
 I've decided to switch to a triangulation method for determining the x, y, and z distance of the ping pong ball in a coordinate system that we can use. That means we'll be using two Microsoft LifeCam 3000 USB cameras. Tomorrow I'll write the code to run my object detection model on two cameras and do triangulation. I spent the last two hours reviewing code from someone who has already solved the triangulation problem. I think it may also be wise to add a backdrop to the ping pong table so we get less interference with our model. I'm also not sure yet if we should mount the cameras to the ceiling or put them on the opposite side of the ping pong table from our robot. 
 
-Link to Triangulation using OpenCv tutorial: https://www.youtube.com/watch?v=sW4CVI51jDY
-Link to the Gitlab Repository: https://gitlab.com/-/ide/project/duder1966/youtube-projects/edit/master/-/OpenCV
++ Link to Triangulation using OpenCv tutorial: https://www.youtube.com/watch?v=sW4CVI51jDY
++ Link to the Gitlab Repository: https://gitlab.com/-/ide/project/duder1966/youtube-projects/edit/master/-/OpenCV
 
 ### April 9th, 2023
 
 Worked on triangulation code using example code from the above-linked Youtube video and Gitlab linked in its description. I need an additional Microsoft LifeCam 3000 to do triangulation and I'll work on this tomorrow. Once I get accurate distance calculations I'm going to write code to predict the flight path of the ping pong ball. I'm not sure if I'm going to need this yet but we'll see. I also wrote test code to display two concatenated webcam feeds. 
 
-Concatenated Webcam Feeds:
++ #### Concatenated Webcam Feeds:
 
 ![IMG_4204](https://user-images.githubusercontent.com/59770928/230815967-da7e6c4e-5065-483a-a309-c3b9f61fd14c.jpg)
 
 ### April 10th, 2023
 
-Ran into a major hardware issue (feature) today. All of the ports on my computer except an SD card reader are USBC ports. To use USB cameras I need to use a dongle. Triangulation requires use of two cameras. So I thought I could just plug both cameras into one dongle. Turns out you can't. You need two seperate dongles. This makes sense because I could use my laptop's integrated camera and a single USB camera without running into a bug, but once I switched to two USB cameras, Opencv couldn't grab frames. This issue was resolved by using two dongles instead of one. Triangulation code now works and its actually pretty accurate. I think the next step is to actually start programming the robot arm. I want to see if I can just control it with a controller. Then I'll switch to controlling the arm with inverse kinematics. I also have to train new models for the cameras because we are now switching their orientation. I'm not sure yet if I have to train a seperate model for both cameras. I'm going to see how just one works and then go from there. 
+Ran into a major hardware issue (feature) today. All of the ports on my computer except an SD card reader are USBC ports. To use USB cameras I need to use a dongle. Triangulation requires the use of two cameras. So I thought I could just plug both cameras into one dongle. Turns out you can't. You need two separate dongles. This makes sense because I could use my laptop's integrated camera and a single USB camera without running into a bug, but once I switched to two USB cameras, Opencv couldn't grab frames. This issue was resolved by using two dongles instead of one. Triangulation code now works and it's actually pretty accurate. I think the next step is to actually start programming the robot arm. I want to see if I can just control it with a controller. Then I'll switch to controlling the arm with inverse kinematics. I also have to train new models for the cameras because we are now switching their orientation. I'm not sure yet if I have to train a separate model for both cameras. I'm going to see how just one works and then go from there. I also plan on cading a housing for the USB cameras so their orientation is fixed. 
 
 + #### Triangulation Code in Action (Ball was on 3in high duct tape and all distance measurements are in meters):
 
