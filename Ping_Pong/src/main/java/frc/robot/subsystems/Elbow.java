@@ -1,7 +1,5 @@
 package frc.robot.subsystems;
 
-import frc.robot.Constants.CANID;
-import frc.robot.Constants.Governors;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMax.IdleMode;
