@@ -22,8 +22,9 @@ public final class Constants {
    */
   public static class CANID{
 
-    public static final int SHOULDER = -0;
-    public static final int ELBOW = -0;
+    public static final int SHOULDER_ID = 10;
+    public static final int ELBOW_ID = 11;
+    public static final int WRIST_ID = 12; 
 
   }
 
@@ -32,7 +33,32 @@ public final class Constants {
    */
   public static class Governors
   {
-    public static final double SHOULDER_GOVERNOR = 0.75;
-    public static final double ELBOW_GOVERNOR = 0.75; 
+    public static final double SHOULDER_GOVERNOR = 0.3;
+    public static final double ELBOW_GOVERNOR = 0.1; 
+  }
+
+  /**
+   * Governors class keeps track of movement governors
+   */
+  public static class ShoulderConstants
+  {
+    public static final double SHOULDER_P = 0.0102;
+    public static final double SHOULDER_I = 0.006;
+    public static final double SHOULDER_D = 0;  
+
+    public static final double SHOULDER_GEAR_RATIO = 1 / (49);  
+    public static final int DEGREES_IN_CIRCLE = 360;
+    public static final double SHOULDER_POSITION_CONVERSION_FACTOR = SHOULDER_GEAR_RATIO * 2.0 * Math.PI;
+  }
+
+  public static class ElbowConstants
+  {
+    public static final double ELBOW_P = 0.012;
+    public static final double ELBOW_I = 0.01;
+    public static final double ELBOW_D = 0;  
+
+    public static final double ELBOW_GEAR_RATIO = 1 / (49);  
+    public static final int DEGREES_IN_CIRCLE = 360;
+    public static final double ELBOW_POSITION_CONVERSION_FACTOR = ELBOW_GEAR_RATIO * 2.0 * Math.PI;
   }
 }

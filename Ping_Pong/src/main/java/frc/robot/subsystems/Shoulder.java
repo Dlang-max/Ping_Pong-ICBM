@@ -1,11 +1,16 @@
 package frc.robot.subsystems;
 
 import frc.robot.Constants.CANID;
+import static frc.robot.Constants.ShoulderConstants.*;
+
 import frc.robot.Constants.Governors;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import com.revrobotics.SparkMaxRelativeEncoder.Type;
+
 
 /**
  * Shoulder class that contains all of the information needed to control our shoulder motor during teleop
@@ -13,16 +18,24 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Shoulder extends SubsystemBase{
 
     private CANSparkMax shoulder;
+    private RelativeEncoder shoulderEncoder;
+
 
     /**
      * Constructs a new shoulder motor 
      */
     public Shoulder()
     {
-        shoulder = new CANSparkMax( CANID.SHOULDER, MotorType.kBrushless );
+        shoulder = new CANSparkMax( CANID.SHOULDER_ID, MotorType.kBrushless );
         shoulder.restoreFactoryDefaults();
         shoulder.setIdleMode(IdleMode.kBrake);
         shoulder.setInverted(false);
+
+        shoulderEncoder = shoulder.getEncoder(Type.kHallSensor, 42);
+        shoulderEncoder.setPositionConversionFactor(SHOULDER_POSITION_CONVERSION_FACTOR);
+
+        shoulder.burnFlash(); 
+        resetShoulderEncoder();
     }
 
     /**
@@ -34,6 +47,16 @@ public class Shoulder extends SubsystemBase{
         shoulder.set( speed * Governors.SHOULDER_GOVERNOR );
     }
 
+    public double getShoulderPosition()
+    {
+        return shoulderEncoder.getPosition(); 
+    }
+
+    public void resetShoulderEncoder()
+    {
+        shoulderEncoder.setPosition(0.0);
+    }
+
     /**
      * Stops the shoulder motor
      */
@@ -41,4 +64,8 @@ public class Shoulder extends SubsystemBase{
     {
         shoulder.set( 0.0 );
     }
+
+
+
+
 }

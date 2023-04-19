@@ -4,14 +4,16 @@
 
 package frc.robot;
 
-import frc.robot.subsystems.*;
-import frc.robot.Constants.OperatorConstants;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.commands.MoveArm;
+import frc.robot.commands.MoveElbow;
+import frc.robot.commands.MoveShoulder;
 import frc.robot.subsystems.Elbow;
 import frc.robot.subsystems.Shoulder;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /**
@@ -28,20 +30,14 @@ public class RobotContainer {
 
   public RobotContainer() {
 
+    operatorOI = new CommandXboxController(0); 
+
     shoulder = new Shoulder();
     elbow = new Elbow(); 
    
     configureBindings();
 
-    shoulder.setDefaultCommand(
-      new RunCommand( 
-        () -> shoulder.moveShoulder( -MathUtil.applyDeadband(operatorOI.getLeftY(), 0.07 ) ),
-         shoulder) );
-
-    elbow.setDefaultCommand(
-    new RunCommand( 
-      () -> elbow.moveElbow( -MathUtil.applyDeadband(operatorOI.getRightY(), 0.07 ) ),
-        elbow) );
+   
     
     
   }
@@ -56,7 +52,21 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-  
+
+    shoulder.setDefaultCommand(
+      new RunCommand( 
+        () -> shoulder.moveShoulder( -MathUtil.applyDeadband(operatorOI.getLeftY(), 0.07 ) ),
+         shoulder) );
+
+    elbow.setDefaultCommand(
+    new RunCommand( 
+      () -> elbow.moveElbow( -MathUtil.applyDeadband(operatorOI.getRightY(), 0.07 ) ),
+        elbow) );
+
+    operatorOI.a().whileTrue( new MoveArm(shoulder, elbow) ); 
+
+    operatorOI.b().onTrue( new InstantCommand( () -> shoulder.resetShoulderEncoder() ).andThen( new InstantCommand( () -> elbow.resetElbowEncoder() ) ) );
+
   }
 
   /**
