@@ -8,8 +8,8 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.revrobotics.SparkMaxRelativeEncoder.Type;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 
 /**
@@ -38,6 +38,7 @@ public class Shoulder extends SubsystemBase{
         resetShoulderEncoder();
     }
 
+
     /**
      * Moves the shoulder motor according to a given input speed
      * @param speed double input that comes from a controller
@@ -52,6 +53,9 @@ public class Shoulder extends SubsystemBase{
         return shoulderEncoder.getPosition(); 
     }
 
+    /**
+     * Resets the shoulder encoder
+     */
     public void resetShoulderEncoder()
     {
         shoulderEncoder.setPosition(0.0);

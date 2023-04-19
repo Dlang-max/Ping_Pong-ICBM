@@ -6,8 +6,6 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.MoveArm;
-import frc.robot.commands.MoveElbow;
-import frc.robot.commands.MoveShoulder;
 import frc.robot.subsystems.Elbow;
 import frc.robot.subsystems.Shoulder;
 import edu.wpi.first.math.MathUtil;
