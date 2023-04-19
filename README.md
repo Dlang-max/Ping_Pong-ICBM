@@ -89,4 +89,13 @@ Ran into a major hardware issue (feature) today. All of the ports on my computer
 ![IMG_4207](https://user-images.githubusercontent.com/59770928/231032449-62124c4f-5a28-4707-ab6e-2cbfe6c480f7.jpg)
 ![IMG_4210](https://user-images.githubusercontent.com/59770928/231032571-d2cbf4b8-509e-459a-baf3-73bb101e4c2d.jpg)
 
+### April 17th, 2023
+
+Today was the first day that I got to put code on the robot. First I had to update and assign CAN values to the Spark MAXs we are using to control the shoulder and elbow motors. We have basic control over the shoulder and elbow of the arm. We also added a curtain in the background so there would be less interference with our ping pong ball detection model. I also have the arm going to set angles which will be useful when I implement inverse kinematics. The PID control loop that I use for this still needs to be tuned better. I also used a script from my Capstone-Vistion-Test repository that takes images from a camera at a set resolution, shutter speed, brightness, color, and frame rate. I will annotate these images and train another object detection model with them for the stereo cameras. Today was mainly a plug-and-play kind of day. I wrote the PID control loops in the lab but other than that I just played around with the robot, tested code, and tuned PID loops. 
+
+Updating and assigning CAN aalues using REV Hardware Client: https://docs.revrobotics.com/rev-hardware-client/spark-max/updating-spark-max
+
++ #### ICBM:
+
+![Untitled video - Made with Clipchamp](https://user-images.githubusercontent.com/59770928/233121882-23f90270-079d-4c61-bea4-7933d4046433.gif)
 
