@@ -9,6 +9,10 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.SparkMaxRelativeEncoder.Type;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import static frc.robot.Constants.ElbowConstants.*;
+import static frc.robot.Constants.CANID.*;
+import static frc.robot.Constants.Governors.*;
+
+
 
 
 
@@ -26,7 +30,7 @@ public class Elbow extends SubsystemBase{
      */
     public Elbow()
     {
-        elbow = new CANSparkMax( CANID.ELBOW_ID, MotorType.kBrushless );
+        elbow = new CANSparkMax( ELBOW_ID, MotorType.kBrushless );
         elbow.restoreFactoryDefaults();
         elbow.setIdleMode(IdleMode.kBrake);
         elbow.setInverted(false);
@@ -45,7 +49,7 @@ public class Elbow extends SubsystemBase{
      */
     public void moveElbow( double speed )
     {
-        elbow.set( speed * Governors.SHOULDER_GOVERNOR );
+        elbow.set( speed * ELBOW_GOVERNOR );
     }
 
     /**

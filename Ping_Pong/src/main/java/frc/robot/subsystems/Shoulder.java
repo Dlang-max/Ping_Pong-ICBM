@@ -10,6 +10,8 @@ import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.SparkMaxRelativeEncoder.Type;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import static frc.robot.Constants.CANID.*;
+import static frc.robot.Constants.Governors.*;
 
 
 /**
@@ -26,7 +28,7 @@ public class Shoulder extends SubsystemBase{
      */
     public Shoulder()
     {
-        shoulder = new CANSparkMax( CANID.SHOULDER_ID, MotorType.kBrushless );
+        shoulder = new CANSparkMax( SHOULDER_ID, MotorType.kBrushless );
         shoulder.restoreFactoryDefaults();
         shoulder.setIdleMode(IdleMode.kBrake);
         shoulder.setInverted(false);
@@ -45,7 +47,7 @@ public class Shoulder extends SubsystemBase{
      */
     public void moveShoulder( double speed )
     {
-        shoulder.set( speed * Governors.SHOULDER_GOVERNOR );
+        shoulder.set( speed * SHOULDER_GOVERNOR );
     }
 
     public double getShoulderPosition()
