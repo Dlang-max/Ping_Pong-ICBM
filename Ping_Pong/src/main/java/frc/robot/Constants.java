@@ -28,6 +28,7 @@ public final class Constants {
     public static final int SHOULDER_ID = 10;
     public static final int ELBOW_ID = 11;
     public static final int WRIST_ID = 12; 
+    public static final int SLIDE_ID = -0; 
 
   }
 
@@ -54,6 +55,15 @@ public final class Constants {
     public static final double SHOULDER_POSITION_CONVERSION_FACTOR = SHOULDER_GEAR_RATIO * 2.0 * Math.PI;
   }
 
+   /**
+   * Governors class keeps track of movement governors
+   */
+  public static class CameraConstants
+  {
+    public static final int WIDTH = 160; //Change
+    public static final int HEIGHT = 120; //Change
+  }
+
   public static class ElbowConstants
   {
     public static final double ELBOW_P = 0.012;
@@ -65,7 +75,7 @@ public final class Constants {
     public static final double ELBOW_POSITION_CONVERSION_FACTOR = ELBOW_GEAR_RATIO * 2.0 * Math.PI;
   }
 
-  public static final class ShoulderConstants2 {
+  public static final class ShoulderConstantsProfile {
     public static final double SOFT_LIMIT_REVERSE = -0.1;
     public static final double SOFT_LIMIT_FORWARD = 4.5;
 
@@ -87,7 +97,7 @@ public final class Constants {
   }
 
   
-  public static final class ElbowConstants2 {
+  public static final class ElbowConstantsProfile {
     public static final double SOFT_LIMIT_REVERSE = -0.1;
     public static final double SOFT_LIMIT_FORWARD = 4.5;
 
