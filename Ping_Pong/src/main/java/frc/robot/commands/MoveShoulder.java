@@ -5,6 +5,8 @@
 package frc.robot.commands;
 
 import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.math.controller.ProfiledPIDController;
+import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Shoulder;
 import static frc.robot.Constants.ShoulderConstants.*; 
@@ -13,7 +15,7 @@ public class MoveShoulder extends CommandBase {
   
   private Shoulder shoulder;
   private double angle; 
-  private PIDController shoulderPID; 
+  private ProfiledPIDController shoulderPID; 
 
   public MoveShoulder(Shoulder shoulder, double angle) {
     this.shoulder = shoulder; 
@@ -25,7 +27,7 @@ public class MoveShoulder extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    shoulderPID = new PIDController( SHOULDER_P, SHOULDER_I, SHOULDER_D); 
+    shoulderPID = new ProfiledPIDController( SHOULDER_P, SHOULDER_I, SHOULDER_D, new TrapezoidProfile.Constraints(-10,-10 )); 
   }
 
   // Called every time the scheduler runs while the command is scheduled.

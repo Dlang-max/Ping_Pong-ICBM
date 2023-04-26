@@ -42,16 +42,20 @@ public class AlignElbowWithBall extends CommandBase {
 
     int yCenter = getYCenter(); 
 
-    ProfiledPIDController elbowPID = new ProfiledPIDController(1.0, 0.0, 0.0, new TrapezoidProfile.Constraints(1.0, 1.0 ));
+    PIDController elbowPID = new PIDController(.0022, 0.0, 0.0);
     elbowPID.setTolerance( 0.5 );
 
     double elbowPower = elbowPID.calculate(yCenter, HEIGHT / 2); 
-
     elbow.moveElbow(elbowPower);
+
+    System.out.println("yCenter: " + getYCenter());
+    System.out.println("elbow power: " + elbowPower);
   }
 
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    elbow.stop(); 
+  }
 
   @Override
   public boolean isFinished() {

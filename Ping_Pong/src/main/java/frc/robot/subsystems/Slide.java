@@ -43,6 +43,24 @@ public class Slide extends SubsystemBase{
         slide.set( speed );
     }
 
+    /**
+     * Moves the shoulder motor according to a given input speed
+     * @param speed double input that comes from a controller
+     */
+    public void moveSlideRight( double speed )
+    {
+        slide.set( speed );
+    }
+
+    /**
+     * Moves the shoulder motor according to a given input speed
+     * @param speed double input that comes from a controller
+     */
+    public void moveSlideLeft( double speed )
+    {
+        slide.set( -speed );
+    }
+
     public double getSlidePosition()
     {
         return slideEncoder.getPosition(); 

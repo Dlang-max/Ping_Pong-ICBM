@@ -12,7 +12,7 @@ public class MoveArm extends ParallelCommandGroup {
     this.shoulder = shoulder;
     this.elbow = elbow; 
 
-    addCommands( new MoveShoulder(shoulder, -90), new MoveElbow(elbow, 90));
+    addCommands( new MoveShoulder(shoulder, -45));
   
   }
 

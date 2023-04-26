@@ -5,6 +5,8 @@
 package frc.robot.commands;
 
 import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.math.controller.ProfiledPIDController;
+import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Elbow;
 import static frc.robot.Constants.ElbowConstants.*; 
@@ -40,6 +42,7 @@ public class MoveElbow extends CommandBase {
     
     //double power = shoulderPID.calculate()
     System.out.println("Elbow Pos: " + elbow.getElbowPosition() * 6);
+    System.out.println("power:" + power);
   }
 
   // Called once the command ends or is interrupted.

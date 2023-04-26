@@ -5,9 +5,11 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.commands.AlignArmWithBall;
 import frc.robot.commands.MoveArm;
 import frc.robot.subsystems.Elbow;
 import frc.robot.subsystems.Shoulder;
+import frc.robot.subsystems.Slide;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -23,6 +25,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class RobotContainer {
   private final Shoulder shoulder;
   private final Elbow elbow; 
+  private final Slide slide;
 
   CommandXboxController operatorOI;
 
@@ -32,6 +35,7 @@ public class RobotContainer {
 
     shoulder = new Shoulder();
     elbow = new Elbow(); 
+    slide = new Slide(); 
    
     configureBindings();
 
@@ -62,6 +66,14 @@ public class RobotContainer {
         elbow) );
 
     operatorOI.a().whileTrue( new MoveArm(shoulder, elbow) ); 
+    operatorOI.x().whileTrue( new AlignArmWithBall(slide, elbow, shoulder) ); 
+
+    operatorOI.rightBumper().whileTrue( new InstantCommand(() -> slide.moveSlideRight(0.5))); 
+    operatorOI.leftBumper().whileTrue( new InstantCommand(() -> slide.moveSlideLeft(0.5))); 
+
+    operatorOI.x().whileTrue( new AlignArmWithBall(slide, elbow, shoulder) ); 
+
+
 
     operatorOI.b().onTrue( new InstantCommand( () -> shoulder.resetShoulderEncoder() ).andThen( new InstantCommand( () -> elbow.resetElbowEncoder() ) ) );
 

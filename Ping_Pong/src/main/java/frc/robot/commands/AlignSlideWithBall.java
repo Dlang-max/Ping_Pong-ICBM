@@ -47,7 +47,9 @@ public class AlignSlideWithBall extends CommandBase {
   }
 
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    slide.stop(); 
+  }
 
   @Override
   public boolean isFinished() {
