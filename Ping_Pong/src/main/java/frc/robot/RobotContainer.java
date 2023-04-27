@@ -68,10 +68,12 @@ public class RobotContainer {
     operatorOI.a().whileTrue( new MoveArm(shoulder, elbow) ); 
     operatorOI.x().whileTrue( new AlignArmWithBall(slide, elbow, shoulder) ); 
 
-    operatorOI.rightBumper().whileTrue( new InstantCommand(() -> slide.moveSlideRight(0.5))); 
-    operatorOI.leftBumper().whileTrue( new InstantCommand(() -> slide.moveSlideLeft(0.5))); 
+    operatorOI.rightBumper().whileTrue( new InstantCommand(() -> slide.moveSlideRight(0.1))); 
+    operatorOI.leftBumper().whileTrue( new InstantCommand(() -> slide.moveSlideLeft(0.1))); 
 
-    operatorOI.x().whileTrue( new AlignArmWithBall(slide, elbow, shoulder) ); 
+    operatorOI.rightBumper().onFalse( new InstantCommand(() -> slide.stop())); 
+    operatorOI.leftBumper().onFalse( new InstantCommand(() -> slide.stop())); 
+
 
 
 

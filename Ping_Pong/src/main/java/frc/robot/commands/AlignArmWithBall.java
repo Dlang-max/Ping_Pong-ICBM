@@ -20,6 +20,7 @@ public class AlignArmWithBall extends ParallelCommandGroup {
     this.shoulder = shoulder; 
 
 
-    addCommands(new MoveShoulder(shoulder, -45), new AlignElbowWithBall(elbow));
+    addCommands(new AlignSlideWithBall(slide));
+    // new MoveShoulder(shoulder, -45), new AlignElbowWithBall(elbow)
   }
 }
