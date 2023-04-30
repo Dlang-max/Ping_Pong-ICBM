@@ -32,6 +32,22 @@ public final class Constants {
 
   }
 
+  public static class SlidePIDConstants
+  {
+    public static final double SLIDE_P = 0.001; 
+    public static final double SLIDE_I = 0;
+    public static final double SLIDE_D = 0;
+
+  }
+
+  public static class ElbowPIDConstants
+  {
+    public static final double ELBOW_P = 0.001; 
+    public static final double ELBOW_I = 0;
+    public static final double ELBOW_D = 0;
+
+  }
+
   /**
    * Governors class keeps track of movement governors
    */
@@ -42,7 +58,7 @@ public final class Constants {
   }
 
   /**
-   * Governors class keeps track of movement governors
+   * Class for Shoulder Constants
    */
   public static class ShoulderConstants
   {
@@ -56,7 +72,7 @@ public final class Constants {
   }
 
    /**
-   * Governors class keeps track of movement governors
+   * Camera constants
    */
   public static class CameraConstants
   {
@@ -64,6 +80,9 @@ public final class Constants {
     public static final int HEIGHT = 720; //Change
   }
 
+  /**
+   * Class for Elbow Constants
+   */
   public static class ElbowConstants
   {
     public static final double ELBOW_P = 0.1;
