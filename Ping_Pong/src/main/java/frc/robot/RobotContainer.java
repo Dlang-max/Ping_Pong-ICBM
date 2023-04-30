@@ -38,10 +38,6 @@ public class RobotContainer {
     slide = new Slide(); 
    
     configureBindings();
-
-   
-    
-    
   }
 
   /**

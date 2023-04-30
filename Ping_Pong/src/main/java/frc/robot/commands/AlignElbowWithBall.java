@@ -42,8 +42,11 @@ public class AlignElbowWithBall extends CommandBase {
   @Override
   public void execute() {
     double elbowPower = elbowPID.calculate(getYCenter(), HEIGHT / 2); 
-
-    if(!isBallFound())
+    if(elbow.getElbowPosition() * 6 < -30 || elbow.getElbowPosition() * 6 > 90  )
+    {
+      elbow.stop();
+    }
+    else if(!isBallFound())
     {
       elbow.stop();
     }
