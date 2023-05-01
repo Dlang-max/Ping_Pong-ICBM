@@ -6,6 +6,8 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.AlignArmWithBall;
+import frc.robot.commands.AlignArmWithHand;
+import frc.robot.commands.AlignElbowAndSlideWithHand;
 import frc.robot.commands.MoveArm;
 import frc.robot.subsystems.Elbow;
 import frc.robot.subsystems.Shoulder;
@@ -62,7 +64,9 @@ public class RobotContainer {
         elbow) );
 
     operatorOI.a().whileTrue( new MoveArm(shoulder, elbow) ); 
-    operatorOI.x().whileTrue( new AlignArmWithBall(slide, elbow, shoulder) ); 
+    operatorOI.x().whileTrue( new AlignArmWithBall(slide, elbow, shoulder) );
+    operatorOI.y().whileTrue( new AlignArmWithHand(elbow, shoulder, slide)); 
+ 
 
     operatorOI.rightBumper().whileTrue( new InstantCommand(() -> slide.moveSlideRight(0.1))); 
     operatorOI.leftBumper().whileTrue( new InstantCommand(() -> slide.moveSlideLeft(0.1))); 

@@ -21,6 +21,9 @@ public class AlignArmWithHand extends ParallelCommandGroup {
     this.shoulder = shoulder;
     this.slide = slide; 
 
-    addCommands(new MoveShoulder(shoulder, -45), new AlignElbowAndSlideWithHand(elbow, slide));
+    addCommands( new MoveShoulder(shoulder, -45), new AlignElbowAndSlideWithHand(elbow, slide));
+
+
+    
   }
 }
