@@ -104,8 +104,13 @@ Updating and assigning CAN aalues using REV Hardware Client: https://docs.revrob
 So I guess I've been slacking a little bit with these updates. The good thing is, I've still been working on code during the past two weeks. I trained a third object detection model (That may or may not have gotten deleted when I was cleaning up my desktop), so I'm going to train another one tomorrow. We also got the slide working and also have the camera mounted on the robot and we are in the beginning stages of having the robot align to the ball based on input from the camera. I also worked on code that uses Google's mediapipe to track my hands so that I can control the robot by tracking the motion of my right and left hands. I'm going to test this code tomorrow.
 
 + #### Slide:
+https://user-images.githubusercontent.com/59770928/235383968-80dac20f-f41d-49b6-a324-65a0608697f1.MOV
 
-+ #### Ball Tracking: 
+
++ #### Ball Tr
+https://user-images.githubusercontent.com/59770928/235383979-ef55b7e1-602a-4df4-a7e3-08a4767855b7.MOV
+
+acking: 
 
 + #### Hand Tracking:
 https://user-images.githubusercontent.com/59770928/235383732-7a68d0c4-e7cb-4ea0-ab1b-a50375703311.mp4
