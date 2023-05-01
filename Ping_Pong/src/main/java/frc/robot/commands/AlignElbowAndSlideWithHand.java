@@ -50,7 +50,6 @@ public class AlignElbowAndSlideWithHand extends CommandBase {
       elbow.moveElbow(elbowSpeed);
       slide.moveSlide(slideSpeed);
     }
-    System.out.println("Elbow Position: " + elbow.getElbowPosition() * 6);
   }
 
   @Override

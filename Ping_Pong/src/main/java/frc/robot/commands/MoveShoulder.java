@@ -37,8 +37,6 @@ public class MoveShoulder extends CommandBase {
     double power = shoulderPID.calculate(shoulderPosition, angle); 
 
     shoulder.moveShoulder(power);
-
-    System.out.println("Shoulder Pos: " + shoulder.getShoulderPosition() * 6);
   }
 
   // Called once the command ends or is interrupted.
