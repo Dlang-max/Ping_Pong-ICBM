@@ -7,7 +7,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.AlignArmWithBall;
 import frc.robot.commands.AlignArmWithHand;
-import frc.robot.commands.AlignElbowAndSlideWithHand;
 import frc.robot.commands.MoveArm;
 import frc.robot.subsystems.Elbow;
 import frc.robot.subsystems.Shoulder;
