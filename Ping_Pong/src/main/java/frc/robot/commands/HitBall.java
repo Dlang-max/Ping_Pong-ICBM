@@ -10,7 +10,9 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Hand;
-import static frc.robot.Constants.HandConstants.*; 
+import static frc.robot.Constants.HandConstants.*;
+
+import javax.lang.model.util.ElementScanner14; 
 
 
 public class HitBall extends CommandBase {
@@ -19,12 +21,14 @@ public class HitBall extends CommandBase {
   PIDController handEndPID; 
   PIDController handStartPID; 
 
+  boolean endReached = false;
 
   NetworkTableInstance inst = NetworkTableInstance.getDefault();
 
   NetworkTable hit = inst.getTable("Hit"); 
   BooleanSubscriber elbowClose = hit.getBooleanTopic("rightClosed").subscribe(false);
   BooleanSubscriber slideClosed = hit.getBooleanTopic("leftClosed").subscribe(false);
+
 
   public HitBall(Hand hand) {
     this.hand = hand; 
@@ -44,20 +48,27 @@ public class HitBall extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-
-    if(!handEndPID.atSetpoint())
+   
+    if( elbowClose.get() && slideClosed.get())
     {
-      double elbowPosition = hand.getHandPosition() * 50; 
-      double power = handEndPID.calculate(elbowPosition, -90) * 2;
-
-      hand.moveHand(power);
-    }
-    else if(!handStartPID.atSetpoint())
-    {
-      double elbowPosition = hand.getHandPosition() * 50; 
-      double power = handEndPID.calculate(elbowPosition, 0) * 2;
-
-      hand.moveHand(power);
+      if(!handEndPID.atSetpoint() && !endReached)
+      {
+        double elbowPosition = hand.getHandPosition() * 50; 
+        double power = handEndPID.calculate(elbowPosition, -90) * 2;
+        hand.moveHand(power);
+      }
+      else if(!handStartPID.atSetpoint())
+      {
+        endReached = true; 
+        double elbowPosition = hand.getHandPosition() * 50; 
+        double power = handStartPID.calculate(elbowPosition, 0) * 2;
+        hand.moveHand(power);
+      }
+      else if(handStartPID.atSetpoint())
+      {
+        endReached = false; 
+      }
+      
     }
   }
 
