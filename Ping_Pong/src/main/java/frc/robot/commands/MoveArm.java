@@ -1,7 +1,6 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
-import edu.wpi.first.wpilibj2.command.RunCommand;
 import frc.robot.subsystems.Elbow;
 import frc.robot.subsystems.Hand;
 import frc.robot.subsystems.Shoulder;

@@ -69,10 +69,4 @@ public class AlignElbowWithBall extends CommandBase {
   {
     return (int)(yCenter.get());
   }
-
-  // is ball found
-  private boolean isBallFound()
-  {
-    return found.get();
-  }
 }

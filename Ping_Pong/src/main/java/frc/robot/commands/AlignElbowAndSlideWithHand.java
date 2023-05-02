@@ -10,7 +10,6 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Elbow;
-import frc.robot.subsystems.Hand;
 import frc.robot.subsystems.Slide;
 
 public class AlignElbowAndSlideWithHand extends CommandBase {

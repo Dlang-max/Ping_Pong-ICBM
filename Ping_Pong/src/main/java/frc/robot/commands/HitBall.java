@@ -12,9 +12,6 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Hand;
 import static frc.robot.Constants.HandConstants.*;
 
-import javax.lang.model.util.ElementScanner14; 
-
-
 public class HitBall extends CommandBase {
   Hand hand; 
 
