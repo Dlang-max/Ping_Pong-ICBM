@@ -5,6 +5,9 @@
 package frc.robot.commands;
 
 import edu.wpi.first.math.controller.PIDController;
+import edu.wpi.first.networktables.BooleanSubscriber;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Hand;
 import static frc.robot.Constants.HandConstants.*; 
@@ -12,32 +15,50 @@ import static frc.robot.Constants.HandConstants.*;
 
 public class HitBall extends CommandBase {
   Hand hand; 
-  double angle; 
-  PIDController handPID; 
 
-  public HitBall(Hand hand, double angle) {
+  PIDController handEndPID; 
+  PIDController handStartPID; 
+
+
+  NetworkTableInstance inst = NetworkTableInstance.getDefault();
+
+  NetworkTable hit = inst.getTable("Hit"); 
+  BooleanSubscriber elbowClose = hit.getBooleanTopic("rightClosed").subscribe(false);
+  BooleanSubscriber slideClosed = hit.getBooleanTopic("leftClosed").subscribe(false);
+
+  public HitBall(Hand hand) {
     this.hand = hand; 
-    this.angle = angle; 
 
     addRequirements(hand);
   }
 
   @Override
   public void initialize() {
-    handPID = new PIDController( HAND_P, HAND_I, HAND_D);
-    handPID.setTolerance(2.0);
+    handEndPID = new PIDController( HAND_P, HAND_I, HAND_D);
+    handEndPID.setTolerance(2.0);
+
+    handStartPID = new PIDController( HAND_P, HAND_I, HAND_D);
+    handStartPID.setTolerance(2.0);
    }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double elbowPosition = hand.getHandPosition() * 50; 
-    double power = handPID.calculate(elbowPosition, angle) * 2;
 
-    hand.moveHand(power);
+    if(!handEndPID.atSetpoint())
+    {
+      double elbowPosition = hand.getHandPosition() * 50; 
+      double power = handEndPID.calculate(elbowPosition, -90) * 2;
 
-    System.out.println("Hand Pos: " + hand.getHandPosition() * 50);
-    System.out.println("power:" + power);
+      hand.moveHand(power);
+    }
+    else if(!handStartPID.atSetpoint())
+    {
+      double elbowPosition = hand.getHandPosition() * 50; 
+      double power = handEndPID.calculate(elbowPosition, 0) * 2;
+
+      hand.moveHand(power);
+    }
   }
 
   // Called once the command ends or is interrupted.
@@ -49,6 +70,6 @@ public class HitBall extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return handPID.atSetpoint();
+    return false;
   }
 }

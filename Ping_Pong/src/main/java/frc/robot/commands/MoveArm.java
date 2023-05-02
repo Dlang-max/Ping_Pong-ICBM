@@ -20,7 +20,8 @@ public class MoveArm extends ParallelCommandGroup {
     this.wrist = wrist; 
     this.hand = hand; 
 
-    addCommands( new HitBall(hand, -90).andThen( new HitBall(hand, 0) ) );
+    addCommands( new HitBall(hand) )
+    ;
 
     // addCommands( new MoveShoulder(shoulder, -45), 
     //   new RunCommand(() -> hand.moveHand(-0.5), hand).withTimeout(0.5).andThen(new RunCommand( () -> hand.moveHand(0.5), hand)).withTimeout(0.5));

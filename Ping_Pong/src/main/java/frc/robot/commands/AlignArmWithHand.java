@@ -4,6 +4,9 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.networktables.BooleanSubscriber;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import frc.robot.subsystems.Elbow;
 import frc.robot.subsystems.Hand;
@@ -15,6 +18,14 @@ import frc.robot.subsystems.Wrist;
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class AlignArmWithHand extends ParallelCommandGroup {
+
+  NetworkTableInstance inst = NetworkTableInstance.getDefault();
+
+
+  NetworkTable hit = inst.getTable("Hit"); 
+  BooleanSubscriber elbowClose = hit.getBooleanTopic("rightClosed").subscribe(false);
+  BooleanSubscriber slideClosed = hit.getBooleanTopic("leftClosed").subscribe(false);
+  
   Elbow elbow;
   Shoulder shoulder;
   Slide slide; 
@@ -27,7 +38,10 @@ public class AlignArmWithHand extends ParallelCommandGroup {
     this.wrist = wrist; 
     this.hand = hand; 
 
+    
+
     addCommands( new MoveShoulder(shoulder, -45), new AlignElbowAndSlideWithHand(elbow, slide), new MoveWrist(wrist, 0));
+    
 
 
     
