@@ -9,8 +9,10 @@ import frc.robot.commands.AlignArmWithBall;
 import frc.robot.commands.AlignArmWithHand;
 import frc.robot.commands.MoveArm;
 import frc.robot.subsystems.Elbow;
+import frc.robot.subsystems.Hand;
 import frc.robot.subsystems.Shoulder;
 import frc.robot.subsystems.Slide;
+import frc.robot.subsystems.Wrist;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
@@ -27,6 +29,8 @@ public class RobotContainer {
   private final Shoulder shoulder;
   private final Elbow elbow; 
   private final Slide slide;
+  private final Wrist wrist; 
+  private final Hand hand; 
 
   CommandXboxController operatorOI;
 
@@ -37,6 +41,8 @@ public class RobotContainer {
     shoulder = new Shoulder();
     elbow = new Elbow(); 
     slide = new Slide(); 
+    wrist = new Wrist(); 
+    hand = new Hand(); 
    
     configureBindings();
   }
@@ -62,9 +68,14 @@ public class RobotContainer {
       () -> elbow.moveElbow( -MathUtil.applyDeadband(operatorOI.getRightY(), 0.07 ) ),
         elbow) );
 
-    operatorOI.a().whileTrue( new MoveArm(shoulder, elbow) ); 
-    operatorOI.x().whileTrue( new AlignArmWithBall(slide, elbow, shoulder) );
-    operatorOI.y().whileTrue( new AlignArmWithHand(elbow, shoulder, slide)); 
+    //For testing purposes
+    operatorOI.a().whileTrue( new MoveArm(shoulder, elbow, wrist, hand) ); 
+
+    //Auto hitting using camera on robot
+    operatorOI.x().whileTrue( new AlignArmWithBall(slide, elbow, shoulder, wrist) );
+    
+    //Moving robot with hand
+    operatorOI.y().whileTrue( new AlignArmWithHand(elbow, shoulder, slide, wrist, hand)); 
  
 
     operatorOI.rightBumper().whileTrue( new InstantCommand(() -> slide.moveSlideRight(0.1))); 
@@ -76,7 +87,7 @@ public class RobotContainer {
 
 
 
-    operatorOI.b().onTrue( new InstantCommand( () -> shoulder.resetShoulderEncoder() ).andThen( new InstantCommand( () -> elbow.resetElbowEncoder() ) ) );
+    operatorOI.b().onTrue( new InstantCommand( () -> shoulder.resetShoulderEncoder() ).andThen( new InstantCommand( () -> elbow.resetElbowEncoder() ) ).andThen(new InstantCommand( () -> wrist.resetWristEncoder() )).andThen(new InstantCommand( () -> hand.resetHandEncoder() )));
 
   }
 

@@ -6,51 +6,49 @@ package frc.robot.commands;
 
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Elbow;
-import static frc.robot.Constants.ElbowConstants.*; 
+import frc.robot.subsystems.Hand;
+import static frc.robot.Constants.HandConstants.*; 
 
-public class MoveElbow extends CommandBase {
-  
-  private Elbow elbow;
-  private double angle; 
-  private PIDController elbowPID; 
 
-  public MoveElbow(Elbow elbow, double angle) {
-    this.elbow = elbow; 
+public class HitBall extends CommandBase {
+  Hand hand; 
+  double angle; 
+  PIDController handPID; 
+
+  public HitBall(Hand hand, double angle) {
+    this.hand = hand; 
     this.angle = angle; 
 
-    addRequirements(elbow);
+    addRequirements(hand);
   }
 
-  // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    elbowPID = new PIDController( ELBOW_P, ELBOW_I, ELBOW_D); 
-
-  }
+    handPID = new PIDController( HAND_P, HAND_I, HAND_D);
+    handPID.setTolerance(2.0);
+   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    double elbowPosition = hand.getHandPosition() * 50; 
+    double power = handPID.calculate(elbowPosition, angle) * 2;
 
-    double elbowPosition = elbow.getElbowPosition() * 6; 
-    double power = elbowPID.calculate(elbowPosition, angle);
+    hand.moveHand(power);
 
-    elbow.moveElbow(power);
-    
-    System.out.println("Elbow Pos: " + elbow.getElbowPosition() * 6);
+    System.out.println("Hand Pos: " + hand.getHandPosition() * 50);
     System.out.println("power:" + power);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    elbow.stop();
+    hand.stop();
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return handPID.atSetpoint();
   }
 }

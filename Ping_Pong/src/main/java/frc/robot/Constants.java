@@ -29,6 +29,8 @@ public final class Constants {
     public static final int ELBOW_ID = 11;
     public static final int WRIST_ID = 12; 
     public static final int SLIDE_ID = 13; 
+    public static final int HAND_ID = 14; 
+
 
   }
 
@@ -42,7 +44,7 @@ public final class Constants {
 
   public static class ElbowPIDConstants
   {
-    public static final double ELBOW_P = 0.001; 
+    public static final double ELBOW_P = 0.002; 
     public static final double ELBOW_I = 0;
     public static final double ELBOW_D = 0;
 
@@ -55,6 +57,9 @@ public final class Constants {
   {
     public static final double SHOULDER_GOVERNOR = 0.3;
     public static final double ELBOW_GOVERNOR = 0.5; 
+    public static final double WRIST_GOVERNOR = 0.5; 
+    public static final double HAND_GOVERNOR = 0.5; 
+
   }
 
   /**
@@ -92,6 +97,28 @@ public final class Constants {
     public static final double ELBOW_GEAR_RATIO = 1 / (49);  
     public static final int DEGREES_IN_CIRCLE = 360;
     public static final double ELBOW_POSITION_CONVERSION_FACTOR = ELBOW_GEAR_RATIO * 2.0 * Math.PI;
+  }
+
+  public static class HandConstants
+  {
+    public static final double HAND_P = 0.001;
+    public static final double HAND_I = 0.01;
+    public static final double HAND_D = 0;  
+
+    public static final double HAND_GEAR_RATIO = 1 / (7);  
+    public static final int DEGREES_IN_CIRCLE = 360;
+    public static final double HAND_POSITION_CONVERSION_FACTOR = HAND_GEAR_RATIO * 2.0 * Math.PI;
+  }
+
+  public static class WristConstants
+  {
+    public static final double WRIST_P = 0.0075;
+    public static final double WRIST_I = 0.005;
+    public static final double WRIST_D = 0;  
+
+    public static final double WRIST_GEAR_RATIO = 1 / (7);  
+    public static final int DEGREES_IN_CIRCLE = 360;
+    public static final double WRIST_POSITION_CONVERSION_FACTOR = WRIST_GEAR_RATIO * 2.0 * Math.PI;
   }
 
   public static final class ShoulderConstantsProfile {

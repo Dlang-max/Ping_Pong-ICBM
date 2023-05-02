@@ -6,8 +6,10 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import frc.robot.subsystems.Elbow;
+import frc.robot.subsystems.Hand;
 import frc.robot.subsystems.Shoulder;
 import frc.robot.subsystems.Slide;
+import frc.robot.subsystems.Wrist;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
@@ -16,12 +18,16 @@ public class AlignArmWithHand extends ParallelCommandGroup {
   Elbow elbow;
   Shoulder shoulder;
   Slide slide; 
-  public AlignArmWithHand(Elbow elbow, Shoulder shoulder, Slide slide) {
+  Wrist wrist; 
+  Hand hand;
+  public AlignArmWithHand(Elbow elbow, Shoulder shoulder, Slide slide, Wrist wrist, Hand hand) {
     this.elbow = elbow;
     this.shoulder = shoulder;
     this.slide = slide; 
+    this.wrist = wrist; 
+    this.hand = hand; 
 
-    addCommands( new MoveShoulder(shoulder, -45), new AlignElbowAndSlideWithHand(elbow, slide));
+    addCommands( new MoveShoulder(shoulder, -45), new AlignElbowAndSlideWithHand(elbow, slide), new MoveWrist(wrist, 0));
 
 
     
