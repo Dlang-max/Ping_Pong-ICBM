@@ -121,6 +121,12 @@ public final class Constants {
     public static final double WRIST_POSITION_CONVERSION_FACTOR = WRIST_GEAR_RATIO * 2.0 * Math.PI;
   }
 
+  public static class LimitSwitchConstants
+  {
+    public static final int LEFT_LIMIT_SWITCH_DIO_CHANNEL = 0;
+    public static final int RIGHT_LIMIT_SWITCH_DIO_CHANNEL = 1;
+  }
+
   public static final class ShoulderConstantsProfile {
     public static final double SOFT_LIMIT_REVERSE = -0.1;
     public static final double SOFT_LIMIT_FORWARD = 4.5;

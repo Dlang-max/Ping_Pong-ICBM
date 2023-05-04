@@ -12,15 +12,20 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Hand;
 import static frc.robot.Constants.HandConstants.*;
 
-public class HitBall extends CommandBase {
+public class HitBallWithHand extends CommandBase {
   Hand hand; 
 
-  PIDController handEndPID; 
-  PIDController handStartPID; 
+  PIDController handPID; 
   boolean endReached = false;
 
+  NetworkTableInstance inst = NetworkTableInstance.getDefault();
 
-  public HitBall(Hand hand) {
+  NetworkTable hit = inst.getTable("Hit"); 
+  BooleanSubscriber elbowClose = hit.getBooleanTopic("rightClosed").subscribe(false);
+  BooleanSubscriber slideClosed = hit.getBooleanTopic("leftClosed").subscribe(false);
+
+
+  public HitBallWithHand(Hand hand) {
     this.hand = hand; 
 
     addRequirements(hand);
@@ -28,35 +33,27 @@ public class HitBall extends CommandBase {
 
   @Override
   public void initialize() {
-    handEndPID = new PIDController( HAND_P, HAND_I, HAND_D);
-    handEndPID.setTolerance(5);
-    handEndPID.setSetpoint(-90);
-
-    handStartPID = new PIDController( HAND_P, HAND_I, HAND_D);
-    handStartPID.setTolerance(2.0);
-    handStartPID.setSetpoint(0);
+    handPID = new PIDController( HAND_P, HAND_I, HAND_D);
+    handPID.setTolerance(5);
+    handPID.setSetpoint(-90);
    }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      if(!handEndPID.atSetpoint() && !endReached || hand.getHandPosition() * 50 < handEndPID.getSetpoint())
-      {
-        double elbowPosition = hand.getHandPosition() * 50; 
-        double power = handEndPID.calculate(elbowPosition, -90) * 2;
-        hand.moveHand(power);
-      }
-      else if(!handStartPID.atSetpoint() && handEndPID.atSetpoint())
-      {
-        endReached = true; 
-        double elbowPosition = hand.getHandPosition() * 50; 
-        double power = handStartPID.calculate(elbowPosition, 0) * 2;
-        hand.moveHand(power);
-      }
-      else if(handStartPID.atSetpoint())
-      {
-        endReached = false; 
-      }
+    double position = hand.getHandPosition() * 50;
+    if(elbowClose.get() && slideClosed.get())
+    {
+      handPID.setSetpoint(-90);
+      double power = handPID.calculate(position, -90);
+      hand.moveHand(power);
+    }
+    else if(!elbowClose.get() && !slideClosed.get())
+    {
+      handPID.setSetpoint(0);
+      double power = handPID.calculate(position, 0);
+      hand.moveHand(power);
+    }
   }
 
   // Called once the command ends or is interrupted.

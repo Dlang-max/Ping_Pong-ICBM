@@ -41,8 +41,13 @@ public class AlignElbowWithBall extends CommandBase {
 
   @Override
   public void execute() {
+    System.out.println("Found: " + found.get());
     double elbowPower = elbowPID.calculate(getYCenter(), HEIGHT / 2); 
-    if((elbow.getElbowPosition() * 6 < -30 && elbowPower < 0) || (elbow.getElbowPosition() * 6 > 110 && elbowPower > 0)  )
+    if(!found.get())
+    {
+      elbow.stop();
+    }
+    else if((elbow.getElbowPosition() * 6 < -30 && elbowPower < 0) || (elbow.getElbowPosition() * 6 > 110 && elbowPower > 0)  )
     {
       elbow.stop();
     }
@@ -50,7 +55,6 @@ public class AlignElbowWithBall extends CommandBase {
     {
       elbow.moveElbow(elbowPower);
     }
-    System.out.println("Elbow Power: " + elbowPower);
   }
 
   @Override

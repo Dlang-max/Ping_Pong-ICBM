@@ -5,8 +5,12 @@ import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.SparkMaxRelativeEncoder.Type;
+
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import static frc.robot.Constants.CANID.*;
+import static frc.robot.Constants.LimitSwitchConstants.*;
+
 
 
 /**
@@ -16,6 +20,10 @@ public class Slide extends SubsystemBase{
 
     private CANSparkMax slide;
     private RelativeEncoder slideEncoder;
+
+    private DigitalInput leftLimitSwitch;
+    private DigitalInput rightLimitSwitch;
+
 
 
     /**
@@ -31,6 +39,15 @@ public class Slide extends SubsystemBase{
         slideEncoder = slide.getEncoder(Type.kHallSensor, 42);
         slide.burnFlash(); 
         resetSlideEncoder();
+
+        leftLimitSwitch = new DigitalInput(LEFT_LIMIT_SWITCH_DIO_CHANNEL);
+        rightLimitSwitch = new DigitalInput(RIGHT_LIMIT_SWITCH_DIO_CHANNEL);
+    }
+
+    @Override
+    public void periodic()
+    {
+        checkSlideLimitSwitches();
     }
 
 
@@ -82,7 +99,11 @@ public class Slide extends SubsystemBase{
         slide.set( 0.0 );
     }
 
-
-
-
+    private void checkSlideLimitSwitches()
+    {
+        if(!leftLimitSwitch.get() || !rightLimitSwitch.get())
+        {
+            stop(); 
+        }
+    }
 }
