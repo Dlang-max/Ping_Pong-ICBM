@@ -57,6 +57,7 @@ public class Slide extends SubsystemBase{
      */
     public void moveSlide( double speed )
     {
+        
         slide.set( speed );
     }
 
@@ -99,7 +100,7 @@ public class Slide extends SubsystemBase{
         slide.set( 0.0 );
     }
 
-    private void checkSlideLimitSwitches()
+    public void checkSlideLimitSwitches()
     {
         if(!leftLimitSwitch.get() || !rightLimitSwitch.get())
         {

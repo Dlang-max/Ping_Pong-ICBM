@@ -9,14 +9,16 @@ import edu.wpi.first.networktables.BooleanSubscriber;
 import edu.wpi.first.networktables.IntegerSubscriber;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Slide;
 import static frc.robot.Constants.CameraConstants.*;
 import static frc.robot.Constants.SlidePIDConstants.*;
+import static frc.robot.Constants.LimitSwitchConstants.*;
 
 
-public class AlignSlideWithBall extends CommandBase {
-  
+
+public class AlignSlideWithBall extends CommandBase {  
   Slide slide;
   PIDController slidePID = new PIDController(SLIDE_P, SLIDE_I, SLIDE_D); 
 
@@ -33,6 +35,7 @@ public class AlignSlideWithBall extends CommandBase {
     this.slide = slide; 
     addRequirements(slide);
 
+
   }
 
   @Override
@@ -48,8 +51,10 @@ public class AlignSlideWithBall extends CommandBase {
     }
     else
     {
-      slide.moveSlide(slidePower);
+      slide.moveSlide(-slidePower);
     }
+    slide.checkSlideLimitSwitches();
+
   }
 
   @Override

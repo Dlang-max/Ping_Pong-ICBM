@@ -39,7 +39,7 @@ public class AlignElbowAndSlideWithHand extends CommandBase {
   public void execute() {
     double elbowSpeed = elbowPower.get();
     double slideSpeed = slidePower.get();
-
+    
     if((elbow.getElbowPosition() * 6 < -30 && elbowSpeed < 0) || (elbow.getElbowPosition() * 6 > 90 && elbowSpeed > 0))
     {
       elbow.stop();
@@ -50,6 +50,8 @@ public class AlignElbowAndSlideWithHand extends CommandBase {
       elbow.moveElbow(elbowSpeed);
       slide.moveSlide(slideSpeed);
     }
+    slide.checkSlideLimitSwitches();
+
   }
 
   @Override

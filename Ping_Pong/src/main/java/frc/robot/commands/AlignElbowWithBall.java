@@ -47,7 +47,7 @@ public class AlignElbowWithBall extends CommandBase {
     {
       elbow.stop();
     }
-    else if((elbow.getElbowPosition() * 6 < -30 && elbowPower < 0) || (elbow.getElbowPosition() * 6 > 110 && elbowPower > 0)  )
+    else if((elbow.getElbowPosition() * 6 < 0 && elbowPower < 0) || (elbow.getElbowPosition() * 6 > 110 && elbowPower > 0)  )
     {
       elbow.stop();
     }

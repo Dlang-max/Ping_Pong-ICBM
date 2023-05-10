@@ -22,7 +22,7 @@ public class AlignArmWithBall extends ParallelCommandGroup {
     this.shoulder = shoulder; 
     this.wrist = wrist; 
 
-    addCommands(new AlignSlideWithBall(slide), new MoveShoulder(shoulder, -45), new AlignElbowWithBall(elbow), new MoveWrist(wrist, 0));
+    addCommands(new AlignSlideWithBall(slide), new MoveShoulder(shoulder, 0), new AlignElbowWithBall(elbow), new MoveWrist(wrist, 0));
      
   }
 }
