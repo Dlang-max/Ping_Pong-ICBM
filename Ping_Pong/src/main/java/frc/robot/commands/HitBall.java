@@ -9,6 +9,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Hand;
 import static frc.robot.Constants.HandConstants.*;
 
+/**
+ * Swings paddle when operator presses A button
+ */
 public class HitBall extends CommandBase {
   Hand hand; 
 

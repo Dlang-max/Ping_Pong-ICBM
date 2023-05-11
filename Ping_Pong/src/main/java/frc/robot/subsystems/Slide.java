@@ -52,7 +52,7 @@ public class Slide extends SubsystemBase{
 
 
     /**
-     * Moves the shoulder motor according to a given input speed
+     * Moves the slide motor according to a given input speed
      * @param speed double input that comes from a controller
      */
     public void moveSlide( double speed )
@@ -62,7 +62,7 @@ public class Slide extends SubsystemBase{
     }
 
     /**
-     * Moves the shoulder motor according to a given input speed
+     * Moves the slide motor according to a given input speed
      * @param speed double input that comes from a controller
      */
     public void moveSlideRight( double speed )
@@ -71,7 +71,7 @@ public class Slide extends SubsystemBase{
     }
 
     /**
-     * Moves the shoulder motor according to a given input speed
+     * Moves the slide motor according to a given input speed
      * @param speed double input that comes from a controller
      */
     public void moveSlideLeft( double speed )
@@ -79,13 +79,8 @@ public class Slide extends SubsystemBase{
         slide.set( -speed );
     }
 
-    public double getSlidePosition()
-    {
-        return slideEncoder.getPosition(); 
-    }
-
     /**
-     * Resets the shoulder encoder
+     * Resets the slide encoder
      */
     public void resetSlideEncoder()
     {
@@ -93,13 +88,16 @@ public class Slide extends SubsystemBase{
     }
 
     /**
-     * Stops the shoulder motor
+     * Stops the slide motor
      */
     public void stop()
     {
         slide.set( 0.0 );
     }
 
+    /**
+     * Checks the limit switches on the slide
+     */
     public void checkSlideLimitSwitches()
     {
         if(!leftLimitSwitch.get() || !rightLimitSwitch.get())

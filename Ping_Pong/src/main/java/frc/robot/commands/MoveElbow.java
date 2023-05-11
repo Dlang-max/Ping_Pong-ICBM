@@ -9,6 +9,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Elbow;
 import static frc.robot.Constants.ElbowConstants.*; 
 
+/**
+ * Keeps the elbow at a certain angle. 
+ */
 public class MoveElbow extends CommandBase {
   
   private Elbow elbow;

@@ -10,6 +10,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Shoulder;
 import static frc.robot.Constants.ShoulderConstants.*; 
 
+/**
+ * Keeps the shoulder at a certain angle. 
+ */
 public class MoveShoulder extends CommandBase {
   
   private Shoulder shoulder;

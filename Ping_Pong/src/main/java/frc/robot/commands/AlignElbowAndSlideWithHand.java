@@ -12,6 +12,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Elbow;
 import frc.robot.subsystems.Slide;
 
+/**
+ * Aligns the elbow with the ball based on the positions of right and left hands
+ */
 public class AlignElbowAndSlideWithHand extends CommandBase {
 
   Elbow elbow;

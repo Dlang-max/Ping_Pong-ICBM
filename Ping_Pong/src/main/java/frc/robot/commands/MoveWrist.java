@@ -10,6 +10,9 @@ import frc.robot.subsystems.Wrist;
 
 import static frc.robot.Constants.WristConstants.*; 
 
+/**
+ * Keeps the wrist at a certain angle. 
+ */
 public class MoveWrist extends CommandBase {
   
   private Wrist wrist;

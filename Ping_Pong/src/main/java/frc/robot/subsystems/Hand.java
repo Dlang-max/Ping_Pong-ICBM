@@ -15,7 +15,7 @@ import static frc.robot.Constants.Governors.*;
 
 
 /**
- * Elbow class that contains all of the information needed to control our shoulder motor during teleop
+ * Hand class that contains all of the information needed to control our shoulder motor during teleop
  */
 public class Hand extends SubsystemBase{
 
@@ -24,7 +24,7 @@ public class Hand extends SubsystemBase{
 
 
     /**
-     * Constructs a new elbow motor 
+     * Constructs a new hand motor 
      */
     public Hand()
     {
@@ -42,7 +42,7 @@ public class Hand extends SubsystemBase{
 
 
     /**
-     * Moves the elbow motor according to a given input speed
+     * Moves the hand motor according to a given input speed
      * @param speed double input that comes from a controller
      */
     public void moveHand( double speed )
@@ -62,7 +62,7 @@ public class Hand extends SubsystemBase{
 
 
     /**
-     * Stops the elbow motor
+     * Stops the hand motor
      */
     public void stop()
     {

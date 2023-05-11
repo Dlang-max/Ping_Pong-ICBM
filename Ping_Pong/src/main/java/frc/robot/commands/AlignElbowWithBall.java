@@ -14,7 +14,9 @@ import frc.robot.subsystems.Elbow;
 import static frc.robot.Constants.CameraConstants.*;
 import static frc.robot.Constants.ElbowPIDConstants.*;
 
-
+/**
+ * Aligns the elbow with the ball.
+ */
 public class AlignElbowWithBall extends CommandBase {
   
   Elbow elbow; 

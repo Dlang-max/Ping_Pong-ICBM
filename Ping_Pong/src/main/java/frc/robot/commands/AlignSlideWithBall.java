@@ -17,10 +17,13 @@ import static frc.robot.Constants.SlidePIDConstants.*;
 import static frc.robot.Constants.LimitSwitchConstants.*;
 
 
-
+/**
+ * Aligns the slide with the ball.
+ */
 public class AlignSlideWithBall extends CommandBase {  
   Slide slide;
   PIDController slidePID = new PIDController(SLIDE_P, SLIDE_I, SLIDE_D); 
+  PIDController slideEndPID = new PIDController(0.0001, 0, 0);
 
   NetworkTableInstance inst = NetworkTableInstance.getDefault();
 
@@ -44,10 +47,9 @@ public class AlignSlideWithBall extends CommandBase {
   @Override
   public void execute() {
     double slidePower = slidePID.calculate(getXCenter(), WIDTH / 2);
-
     if(!isBallFound())
     {
-      slide.stop();
+      slide.stop();;
     }
     else
     {

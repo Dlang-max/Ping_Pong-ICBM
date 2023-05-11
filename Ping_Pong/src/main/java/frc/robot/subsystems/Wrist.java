@@ -15,7 +15,7 @@ import static frc.robot.Constants.Governors.*;
 
 
 /**
- * Elbow class that contains all of the information needed to control our shoulder motor during teleop
+ * Wrist class that contains all of the information needed to control our wrist motor during teleop
  */
 public class Wrist extends SubsystemBase{
 
@@ -24,7 +24,7 @@ public class Wrist extends SubsystemBase{
 
 
     /**
-     * Constructs a new elbow motor 
+     * Constructs a new wrist motor 
      */
     public Wrist()
     {
@@ -42,7 +42,7 @@ public class Wrist extends SubsystemBase{
 
 
     /**
-     * Moves the elbow motor according to a given input speed
+     * Moves the wrist motor according to a given input speed
      * @param speed double input that comes from a controller
      */
     public void moveWrist( double speed )
@@ -62,7 +62,7 @@ public class Wrist extends SubsystemBase{
 
 
     /**
-     * Stops the elbow motor
+     * Stops the wrist motor
      */
     public void stop()
     {
@@ -70,7 +70,7 @@ public class Wrist extends SubsystemBase{
     }
 
     /**
-     * Resets the elbow encoder
+     * Resets the wrist encoder
      */
     public void resetWristEncoder()
     {

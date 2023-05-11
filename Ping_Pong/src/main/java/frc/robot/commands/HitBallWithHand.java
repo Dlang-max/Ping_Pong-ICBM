@@ -12,6 +12,9 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Hand;
 import static frc.robot.Constants.HandConstants.*;
 
+/**
+ * Swings the paddle based on hand input from the camera. 
+ */
 public class HitBallWithHand extends CommandBase {
   Hand hand; 
 
