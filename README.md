@@ -1,7 +1,7 @@
 # PING_PONG_ROBOT_ICBM (Intercontinental Ball Machine)
 
 This is the repo for Daniel Lang and Zach Boeck's Senior Capstone. 
-Link to Robot CAD:https://cad.onshape.com/documents/e40979f8a832da7594da0566/w/5f1ee792b9d612980563d301/e/48b0547c97357f7288388ecd
++ Link to Robot CAD:https://cad.onshape.com/documents/e40979f8a832da7594da0566/w/5f1ee792b9d612980563d301/e/48b0547c97357f7288388ecd
 
 
 
