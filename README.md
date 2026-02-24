@@ -112,8 +112,3 @@ https://user-images.githubusercontent.com/59770928/235383968-80dac20f-f41d-49b6-
 https://user-images.githubusercontent.com/59770928/235383979-ef55b7e1-602a-4df4-a7e3-08a4767855b7.MOV
 
 
-
-+ #### Hand Tracking:
-https://user-images.githubusercontent.com/59770928/235383732-7a68d0c4-e7cb-4ea0-ab1b-a50375703311.mp4
-
-
